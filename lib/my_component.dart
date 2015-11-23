@@ -17,3 +17,7 @@ class MyComponent extends PolymerElement {
     print("the param changed!");
   }
 }
+
+//entrypoint to build standalone-version of the component
+main() {
+}

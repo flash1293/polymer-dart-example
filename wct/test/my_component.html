@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my_component</title>
+
+  <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script>
+    window.Polymer = window.Polymer || {};
+    window.Polymer.dom = 'shadow';
+  </script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <link rel="import" href="../bower_components/test-fixture/test-fixture.html">
+  <script src="../bower_components/test-fixture/test-fixture-mocha.js"></script>
+
+</head>
+<body>
+  
+<link rel="import" href="build/web/foo.html">
+
+<test-fixture id="my-component">
+  <template>
+    <my-component></my-component>
+  </template>
+</test-fixture>
+
+<script>
+  suite('my-component', function () {
+    var item;
+    // wait until template is bound
+    setup(function (done) {
+      setTimeout(function() {
+        item = fixture('my-component');
+        done();
+      }, 3000);
+    });
+
+    test('should be initialized correctly', function () {
+        assert.equal(item.shadowRoot.querySelector('h1').textContent, 'This is my component');
+    });
+  });
+</script>
+
+</body>
+</html>

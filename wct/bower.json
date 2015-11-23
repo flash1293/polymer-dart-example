@@ -9,6 +9,7 @@
   "main": "",
   "license": "MIT",
   "dependencies": {
-    "web-component-tester": "Polymer/web-component-tester#~3.4.0"
+    "web-component-tester": "Polymer/web-component-tester#~3.4.0",
+    "webcomponentsjs": "~0.7.18"
   }
 }
