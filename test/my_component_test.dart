@@ -6,14 +6,10 @@ import 'package:polymer/polymer.dart';
 
 import '../web/my_component.dart';
 
-void main() {
+main() async {
   MyComponent componentUnderTest;
   
-  setUpAll(() {
-    //wait for polymer to start up
-    return new Future.delayed(const Duration(seconds: 4), () => null);
-    //return initPolymer();
-  });
+  await initPolymer();
   
   setUp(() {
     //document.body.children.clear();

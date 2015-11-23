@@ -12,7 +12,6 @@ transformers:
 - web_components:
     entry_points:
       - web/foo.html
-      - test/my_component_test.html
 - reflectable:
     entry_points:
       - web/foo.dart
