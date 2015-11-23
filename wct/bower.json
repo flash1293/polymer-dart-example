@@ -1,0 +1,14 @@
+{
+  "name": "polymer_dart_example",
+  "version": "0.0.0",
+  "homepage": "https://github.com/flash1293/polymer_dart_example",
+  "authors": [
+    "Johannes Reuter <jreuter@inovex.de>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "web-component-tester": "Polymer/web-component-tester#~3.4.0"
+  }
+}

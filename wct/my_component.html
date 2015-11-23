@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>my_component</title>
+
+  <script src="bower_components/web-component-tester/browser.js"></script>
+  <link rel="import" href="bower_components/test-fixture/test-fixture.html">
+  <script src="bower_components/test-fixture/test-fixture-mocha.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../build/mycomponent.html">
+
+</head>
+<body>
+
+<test-fixture id="my-component">
+  <template>
+    <my-component></my-component>
+  </template>
+</test-fixture>
+
+<script>
+  suite('my-component', function () {
+    var item;
+    // wait until template is bound
+    setup(function (done) {
+      item = fixture('my-component');
+      done();
+    });
+
+    test('should be initialized correctly', function () {
+      assert.equal(item.shadowRoot.querySelector('h1').textContent, 'This is my component');
+    });
+  });
+</script>
+
+</body>
+</html>
