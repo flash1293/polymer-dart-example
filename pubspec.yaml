@@ -7,10 +7,15 @@ dependencies:
   web_components: ^0.12.0
   reflectable: ^0.3.0
   polymer_elements: 1.0.0-rc.3
+  test: 0.12.5+1
 transformers:
 - web_components:
     entry_points:
       - web/foo.html
+      - test/my_component_test.html
 - reflectable:
     entry_points:
       - web/foo.dart
+- test/pub_serve:
+    $include:
+      - test/**_test{.*,}.dart
