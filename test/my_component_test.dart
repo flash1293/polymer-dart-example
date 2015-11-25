@@ -5,17 +5,29 @@ import 'package:polymer/polymer.dart';
 
 import 'package:polymer_dart_example/my_component.dart';
 
+class NullTreeSanitizer implements NodeTreeSanitizer {
+  void sanitizeTree(node) {}
+}
+
 main() async {
   MyComponent componentUnderTest;
   
   await initPolymer();
   
   setUp(() {
-    componentUnderTest = document.body.querySelector("#abc");
+    document.body.children.clear();
+    componentUnderTest = new Element.html('<my-component></my-component>', treeSanitizer: new NullTreeSanitizer());
+    document.body.append(componentUnderTest);
   });
   
   test("my-component should be initialized correctly", () {
     Element heading = new PolymerDom(componentUnderTest.root).querySelector('h1');
     expect(heading.text, equals('This is my component'));
+  });
+
+  test("my-component should reflect param to paragraph", () {
+    componentUnderTest.setAttribute("param", "abc");
+    Element paragraph = new PolymerDom(componentUnderTest.root).querySelector('p');
+    expect(paragraph.text, equals('abc'));
   });
 }
