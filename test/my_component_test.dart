@@ -5,10 +5,6 @@ import 'package:polymer/polymer.dart';
 
 import 'package:polymer_dart_example/my_component.dart';
 
-class NullTreeSanitizer implements NodeTreeSanitizer {
-  void sanitizeTree(node) {}
-}
-
 main() async {
   MyComponent componentUnderTest;
   
@@ -16,7 +12,7 @@ main() async {
   
   setUp(() {
     document.body.children.clear();
-    componentUnderTest = new Element.html('<my-component></my-component>', treeSanitizer: new NullTreeSanitizer());
+    componentUnderTest = new Element.tag('my-component');
     document.body.append(componentUnderTest);
   });
   
